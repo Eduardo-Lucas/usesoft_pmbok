@@ -8,7 +8,7 @@ Lista os processos por Grupos de Processos:
 - Encerramento
 
 Assim como lista os mesmos processos, por Áreas de Conhecimentos, a saber:
-- 4. Integração
+4. Integração
 - 5. Escopo
 - 6. Cronograma
 - 7. Custos

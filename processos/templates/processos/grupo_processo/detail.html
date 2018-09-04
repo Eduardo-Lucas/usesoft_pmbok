@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<h1>Grupo de Processos de {{grupo_processo.descricao}}</h1>
+ <div align="right">
+    <a href="{% url 'processos:grupo_processo' %}">
+        <i class="fas fa-arrow-alt-circle-left"> </i>Voltar
+    </a>
+</div>
+
+<div class="accordion" id="accordionExample">
+    {% for proc in grupo_processo.processo_set.all %}
+        <div class="card">
+            <div class="card-header" id={{item.codigo}}>
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                        <p>{{proc.codigo}} {{proc.name}} - {{proc.area_conhecimento}}</p>
+
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby={{item.codigo}} data-parent="#accordionExample">
+                <div class="card-body">
+                   {{proc.descricao}}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+
